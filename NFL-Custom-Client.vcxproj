@@ -51,11 +51,28 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalDependencies>user32.lib;kernel32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;user32.lib;kernel32.lib;shlwapi.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="src\core\hooks.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\core\hooks.h" />
+    <ClInclude Include="src\core\memory.h" />
+    <ClInclude Include="src\core\unreal.h" />
+    <ClInclude Include="src\core\patterns.h" />
+    <ClInclude Include="src\ui\overlay.h" />
+    <ClInclude Include="src\ui\menu.h" />
+    <ClInclude Include="src\utils\logger.h" />
+    <ClInclude Include="src\utils\config.h" />
+    <ClInclude Include="src\utils\hotkeys.h" />
+    <ClInclude Include="src\features\feature_manager.h" />
+    <ClInclude Include="src\features\player\godmode.h" />
+    <ClInclude Include="src\features\movement\speed.h" />
+    <ClInclude Include="src\features\movement\teleport.h" />
+    <ClInclude Include="src\features\items\currency.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
