@@ -9,6 +9,7 @@
 #include "utils/logger.h"
 #include "utils/config.h"
 #include "utils/hotkeys.h"
+#include "features/feature_manager.h"
 
 DWORD WINAPI MainThread(LPVOID lpParam)
 {
@@ -66,6 +67,11 @@ DWORD WINAPI MainThread(LPVOID lpParam)
         return 1;
     }
     
+    // Initialize features
+    Logger::Log("[*] Initializing feature modules...");
+    Features::InitializeFeatures();
+    Logger::Log("[+] Feature modules initialized");
+    
     // Register hotkeys
     Logger::Log("[*] Registering hotkeys...");
     Hotkeys::Register(VK_INSERT, []() {
@@ -74,18 +80,18 @@ DWORD WINAPI MainThread(LPVOID lpParam)
     });
     
     Hotkeys::Register(VK_F5, []() {
-        Logger::Log("[Hotkey] Position saved (F5)");
-        // Teleport save logic would go here
+        Features::Movement::SaveTeleportPosition();
     });
     
     Hotkeys::Register(VK_F6, []() {
-        Logger::Log("[Hotkey] Position loaded (F6)");
-        // Teleport load logic would go here
+        Features::Movement::LoadTeleportPosition();
     });
     
     Logger::Log("[+] All systems initialized successfully");
     Logger::Log("==============================================");
     Logger::Log("[*] Press INSERT to open menu");
+    Logger::Log("[*] Press F5 to save position");
+    Logger::Log("[*] Press F6 to load position");
     Logger::Log("[*] Press END to unload");
     Logger::Log("==============================================");
     
@@ -93,12 +99,16 @@ DWORD WINAPI MainThread(LPVOID lpParam)
     while (!(GetAsyncKeyState(VK_END) & 0x8000))
     {
         Hotkeys::Process();
+        Features::UpdateFeatures();
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }
     
     // Cleanup
     Logger::Log("==============================================");
     Logger::Log("[*] Unloading NFL Custom Client...");
+    
+    Features::ShutdownFeatures();
+    Logger::Log("[+] Features shut down");
     
     Config::Save();
     Logger::Log("[+] Configuration saved");

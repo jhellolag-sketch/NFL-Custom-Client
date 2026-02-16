@@ -1,0 +1,75 @@
+{
+  "ui": {
+    "theme": "dark",
+    "show_fps": true,
+    "opacity": 0.95,
+    "menu_width": 750,
+    "menu_height": 550
+  },
+  "hotkeys": {
+    "toggle_menu": 45,
+    "teleport_save": 116,
+    "teleport_load": 117,
+    "unload": 35
+  },
+  "features": {
+    "god_mode": false,
+    "infinite_stamina": false,
+    "infinite_mana": false,
+    "one_hit_kill": false,
+    "damage_multiplier": 1.0,
+    "speed_multiplier": 1.0,
+    "jump_multiplier": 1.0,
+    "flight_mode": false,
+    "noclip_mode": false,
+    "esp_enabled": false,
+    "fov": 90.0,
+    "free_camera": false
+  },
+  "teleport": {
+    "saved_positions": [
+      {
+        "name": "Starting Area",
+        "x": 0.0,
+        "y": 0.0,
+        "z": 100.0
+      },
+      {
+        "name": "Town Center",
+        "x": 1000.0,
+        "y": 2000.0,
+        "z": 150.0
+      }
+    ]
+  },
+  "stats": {
+    "health": 100.0,
+    "stamina": 100.0,
+    "mana": 100.0,
+    "level": 1
+  },
+  "items": {
+    "currency": 0,
+    "last_spawned_item_id": 0,
+    "last_spawned_quantity": 1
+  },
+  "world": {
+    "freeze_time": false,
+    "time_speed": 1.0,
+    "weather_type": 0
+  },
+  "visual": {
+    "esp_color": {
+      "r": 1.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    "show_hud": true
+  },
+  "advanced": {
+    "console_enabled": false,
+    "auto_save_config": true,
+    "log_level": 1
+  }
+}

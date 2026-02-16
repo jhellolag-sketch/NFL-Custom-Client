@@ -68,6 +68,11 @@
     <ClInclude Include="src\utils\logger.h" />
     <ClInclude Include="src\utils\config.h" />
     <ClInclude Include="src\utils\hotkeys.h" />
+    <ClInclude Include="src\features\feature_manager.h" />
+    <ClInclude Include="src\features\player\godmode.h" />
+    <ClInclude Include="src\features\movement\speed.h" />
+    <ClInclude Include="src\features\movement\teleport.h" />
+    <ClInclude Include="src\features\items\currency.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
